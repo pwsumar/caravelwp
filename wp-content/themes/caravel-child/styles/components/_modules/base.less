@@ -1,0 +1,92 @@
+// ==================================================================================
+// Base
+// ==================================================================================
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  font-family: @grotesk-reg;
+  line-height: 1.8;
+  color: @primary-color;
+}
+
+p {
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  font-family: @grotesk-reg;
+  .transition(all ease-in-out .3s);
+  color: @white;
+
+  &:hover, &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+// tags
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 13px;
+}
+
+h6 {
+  font-size: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @grotesk-bold;
+  color: @primary-color;
+  margin: 10px 0;
+}
+
+img {
+  width: auto;
+  height: auto;
+}
+
+// List
+ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: inline-block;
+    vertical-align: top;
+
+    a {
+      display: block;
+    }
+  }
+}
+.text-gray {
+  color: #999999;
+}
+.gray-bg {
+  background-color: #f8f8f8;
+}
+.p-0 {
+  padding:0;
+}

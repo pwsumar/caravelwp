@@ -1,0 +1,57 @@
+body.home .navbar-home {
+  position: fixed;
+}
+.navbar-home {
+  background-color: @white;
+  border: 0;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  bottom: 0;
+
+  .navbar-menu-collapse {
+    text-align: center;
+  }
+
+  .navbar-nav {
+    padding: 25px 0px 0;
+    float: none;
+    text-align: center;
+    display: inline-block;
+
+    > li {
+      > a {
+        color: @primary-color;
+        padding: 10px 20px;
+        font-family: @grotesk-medium;
+        font-size: 15px;
+        text-transform: uppercase;
+      }
+
+      &.active {
+        > a {
+          color: @red;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .navbar-brand {
+    padding: 10px;
+    height: initial;
+    display: block;
+  }
+}
+
+.navbar-fixed-top {
+  bottom: initial;
+  top: 0;
+  .box-shadow(0px 11px 19px -10px rgba(0,0,0,0.1));
+}
+
+.navbar-subpage {
+  bottom: initial;
+  top: 0;
+}

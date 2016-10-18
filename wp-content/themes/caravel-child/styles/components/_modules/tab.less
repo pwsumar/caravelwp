@@ -1,0 +1,92 @@
+.tab-panel-holder {
+    background-color: #f8f8f8;
+    padding: 4em 0;
+
+    .nav-tabs {
+    	border-bottom: 0;
+
+    	> li {
+    		.border-progress {
+			    height: 4px;
+			    width: 81%;
+			    background-color: #e7e7e7;
+			    position: relative;
+			    margin-left: 4em;
+
+			    &:after {
+			    	content: '';
+				    width: 11px;
+				    height: 11px;
+				    background-color: transparent;
+				    border: 2px solid #e1e1e1;
+				    border-radius: 50%;
+				    position: absolute;
+				    top: 50%;
+				    left: -1em;
+				    .translate(-50%,-50%);
+			    }
+
+			    .progress-bar {
+					height: 4px;
+					width: 0%;
+					background-color: #dddddd;
+					position: relative;
+					.transition(width .5s ease);
+					.box-shadow(none);
+			    }
+			}
+
+    		> a {
+				border: 0;
+				font-size: 16px;
+				font-family: @grotesk-reg;
+				color: #999999;
+				max-width: 60%;
+    			text-align: center;
+    			padding: 20px;
+
+    			&:hover {
+    				color: #202020;
+    				background-color: transparent;
+    			}
+    		}
+
+    		&.active {
+    			.border-progress {
+    				&:after {
+    					width: 15px;
+				    	height: 15px;
+    					background-color: #d84945;
+    					border-color: #d84945;
+    				}
+    			}
+
+    			> a {
+    				background-color: transparent;
+	    			border: 0;
+	    			color: #202020;
+    			}
+    			
+    		}
+			
+			&.visited {
+				.border-progress {
+					&:after {
+						border: 2px solid #000;
+	    				background: #000;
+	    				width: 15px;
+				    	height: 15px;
+					}
+					.progress-bar {
+						width: 100%;
+					}
+				}
+			}
+    		&:last-child {
+    			.border-progress {
+    				background-color: transparent;
+    			}
+    		}
+    	}
+    }
+}

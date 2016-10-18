@@ -1,0 +1,105 @@
+.form-control{
+  border-radius: 5px;
+  box-shadow: none;
+  height: initial;
+  font-family: @grotesk-reg;
+  border-color: #8e8e8e;
+  background: #fff;
+  margin: 0;
+  padding: 15px 20px;
+
+  &:focus {
+    border-color: @primary-color;
+    box-shadow: none;
+  }
+
+  ::-webkit-input-placeholder {color:#a1a1a1;}
+  :-moz-placeholder {color:#a1a1a1;}
+  ::-moz-placeholder {color:#a1a1a1;}
+  :-ms-input-placeholder {color:#a1a1a1;}
+
+}
+
+textarea {
+  width: 100%;
+  min-height: 172px;
+  resize: none;
+  border-color: #8e8e8e;
+  color: #a1a1a1;
+  font-family: @grotesk-reg;
+  font-size: 14px;
+  padding: 15px 20px;
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+    border-color: @primary-color;
+    box-shadow: none;
+  }
+}
+.form-personal-info {
+    margin-bottom: 10px;
+}
+.form-personal-holder {
+  border: 1px solid #e0e0e0;
+  border-bottom: 0;
+  border-right: 0;
+
+  .form-group {
+    margin-bottom: 0;
+    border-right: 1px solid #e0e0e0;
+    padding: 10px;
+  }
+  select {
+    margin-left: -7px;
+  }
+  .form-control {
+    border: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: initial !important;
+    height: 20px;
+    color: @black;
+
+    &:focus {
+      color:@black;
+    }
+  }
+
+  p {
+    color: #999999;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  label {
+    color: #696969;
+    font-size: 14px;
+    font-weight: 100;
+    position: relative;
+
+    div {
+      color: #d84945;
+      font-size: 24px;
+      font-family: @grotesk-bold;
+      display: inline-block;
+      line-height: initial;
+    }
+  }
+  .focus-input {
+      background-color: #fef6f6;
+
+      .form-control {
+        background-color: #fef6f6;
+      }
+  }
+  &:last-child {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  ::-webkit-input-placeholder {color:@black;}
+  :-moz-placeholder {color:@black;}
+  ::-moz-placeholder {color:@black;}
+  :-ms-input-placeholder {color:@black;}
+}
