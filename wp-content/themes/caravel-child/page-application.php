@@ -64,7 +64,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 	</div>
 	<div class="section-content">
 		<div class="container">
-			<form action="" method="post" enctype="multipart/form-data" id="application-form">
+			<form  action="<?php echo site_url(); ?>/application-form/" method="post" enctype="multipart/form-data" id="application-form">
 				<div class="tab-content">
 					<div role="tabpanel" class="tab-pane active" id="personal">
 						<div class="section-title text-center">
@@ -76,24 +76,28 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Full Name <div>*</div></label>
-									    <input type="text" name="full-name" class="form-control" placeholder="Galileo Galilei" required>
+									    <input type="text" name="full-name" class="form-control"    placeholder="Galileo Galilei"  >
 									    <p>Last Name, First Name & Middle Name</p>
+									    <p class = "full_name_error_message error_messages label label-danger" style= "visibility: hidden; ">Full Name is  ! </p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Upload Latest Photo <div>*</div></label>
-									    <div class="button-holder">
+									    <div class="button-holder" class = "file-field">
 										    <div class="inline-grp">
 												<span id="file-name">No file selected</span>
 										    </div>
-										    <div class="inline-grp fl-right">
+										    <div class="inline-grp fl-right" >
 										    	<button type="button" id="application-choose-file">Choose File</button>
-										    	<input type="file" name="file-photo" class="form-control" id="input-file" style="display: none" required>
+										    	<input type="file" name="file-photo" class="form-control" id="input-file" style="display: none"  >
 										    </div>
 									    </div>
 									    
 									    <p >Note: .Png or .jpg only</p>
+									    <p class = "file_photo_error_message error_messages label label-danger" style= "visibility: hidden; ">Files Photo is  ! </p>
+
+
 								  	</div>
 								</div>
 							</div>
@@ -101,8 +105,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-12 p-0">
 									<div class="form-group">
 									    <label>Address <div>*</div></label>
-									    <input type="text" name="address" class="form-control" placeholder="B18 L27 P4 Foxglove St. Primarosa Subd. Buhay na Tubi" required>
+									    <input type="text" name="address" class="form-control" placeholder="B18 L27 P4 Foxglove St. Primarosa Subd. Buhay na Tubi"  >
 								  	</div>
+								  <p class = "address_error_message error_messages label label-danger" style= "visibility: hidden; ">Address is  ! </p>
+
 								</div>
 								
 							</div>
@@ -110,29 +116,39 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Age <div>*</div></label>
-									    <input type="text" name="age" class="form-control" required>
+									    <input type="text" name="age" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Gender <div>*</div></label>
 									    <select class="form-control" name="gender">
-										  <option value="select">-Select-</option>
+										  <option value="none">-Select-</option>
 										  <option value="male">Male</option>
 										  <option value="female">Female</option>
 										</select>
+
+									  <p class = "gender_error_message error_messages label label-danger" style= "visibility: hidden; ">Gender is  ! </p>
+
+
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="date-birth" class="form-control" required>
+									    <input type="date" name="date-birth" class="form-control"  >
+
+									  <p class = "dob_error_message error_messages label label-danger" style= "visibility: hidden; ">Date of Birth is  ! </p>
+
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Place of Birth <div>*</div></label>
-									    <input type="text" name="place-birth" class="form-control" required>
+									    <input type="text" name="place-birth" class="form-control"  >
+
+									  <p class = "place_birth_error_message error_messages label label-danger" style= "visibility: hidden; ">Place of Birth is  ! </p>
+
 								  	</div>
 								</div>
 							</div>
@@ -140,32 +156,45 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Nationality <div>*</div></label>
-									    <input type="text" name="nationality" class="form-control" required>
-								  	</div>
+									    <input type="text" name="nationality" class="form-control"  >
+									
+									  <p class = "nationality_error_message error_messages label label-danger" style= "visibility: hidden; ">Nationality
+									  is  ! </p>
+
+								  	</div>	
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Civil Status <div>*</div></label>
 									    <select class="form-control" name="civil-status">
-										  <option value="select">-Select-</option>
+										  <option value="none">-Select-</option>
 										  <option value="married">Married</option>
 										  <option value="widowed">Widowed</option>
 										  <option value="separate">Separated</option>
 										  <option value="divorced">Divorced</option>
 										  <option value="single">Single</option>
 										</select>
+
+									  <p class = "civil_status_error_message error_messages label label-danger" style= "visibility: hidden; ">Civil Status is  ! </p>
+
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Religion <div>*</div></label>
-									    <input type="text" name="religion" class="form-control" required>
+									    <input type="text" name="religion" class="form-control"  >
+
+									 	<p class = "religion_error_message error_messages label label-danger" style= "visibility: hidden; ">Religion is  ! </p>
+								  	
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Contact Number <div>*</div></label>
-									    <input type="text" name="contact-number" class="form-control" required>
+									    <input type="text" name="contact-number" class="form-control"  >
+										
+										<p class = "contact_num_error_message error_messages label label-danger" style= "visibility: hidden; ">Contact Number is  ! </p>
+
 								  	</div>
 								</div>
 							</div>
@@ -173,37 +202,51 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Blood Type <div>*</div></label>
-									    <input type="text" name="blood-type" class="form-control" required>
+									    <input type="text" name="blood-type" class="form-control"  >
+
+										<p class = "blood_type_error_message error_messages label label-danger" style= "visibility: hidden; ">Blood Type is  ! </p>
+
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Height (cm) <div>*</div></label>
-									    <input type="text" name="height" class="form-control" required>
+									    <input type="text" name="height" class="form-control"  >
+										
+										<p class = "height_error_message error_messages label label-danger" style= "visibility: hidden; ">Height is  ! </p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Weight (kg) <div>*</div></label>
-									    <input type="text" name="weight" class="form-control" required>
+									    <input type="text" name="weight" class="form-control"  >
+										
+										<p class = "weight_error_message error_messages label label-danger" style= "visibility: hidden; ">Weight is  ! </p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Waist (cm) <div>*</div></label>
-									    <input type="text" name="waist" class="form-control" required>
+									    <input type="text" name="waist" class="form-control"  >
+										
+										<p class = "waist_error_message error_messages label label-danger" style= "visibility: hidden; ">Waist is  ! </p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Coat Size <div>*</div></label>
-									    <input type="text" name="coat-size" class="form-control" required>
+									    <input type="text" name="coat-size" class="form-control"  >
+										
+										<p class = "coat_size_error_message error_messages label label-danger" style= "visibility: hidden; ">Coat Size is 
+										 ! </p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Shoe Size <div>*</div></label>
-									    <input type="text" name="shoe-size" class="form-control" required>
+									    <input type="text" name="shoe-size" class="form-control"  >
+										
+										<p class = "shoe_size_error_message error_messages label label-danger" style= "visibility: hidden; ">Shoe Size is  ! </p>
 								  	</div>
 								</div>
 							</div>
@@ -213,25 +256,34 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>SSS <div>*</div></label>
-									    <input type="text" name="sss" class="form-control" required>
+									    <input type="text" name="sss" class="form-control"  >
+										
+										<p class = "sss_error_message error_messages label label-danger" style= "visibility: hidden; ">Height is  ! 
+										</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Philhealth <div>*</div></label>
-									    <input type="text" name="philhealth" class="form-control" required>
+									    <input type="text" name="philhealth" class="form-control"  >
+										
+										<p class = "philhealth_error_message error_messages label label-danger" style= "visibility: hidden; ">Philhealth is  ! </p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Tax ID Number <div>*</div></label>
-									    <input type="text" name="tax-id" class="form-control" required>
+									    <input type="text" name="tax-id" class="form-control"  >
+										
+										<p class = "tax_id_error_message error_messages label label-danger" style= "visibility: hidden; ">Text Id is  ! </p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Pag-ibig <div>*</div></label>
-									    <input type="text" name="pag-ibig" class="form-control" required>
+									    <input type="text" name="pag-ibig" class="form-control"  >
+
+										<p class = "pagibig_error_message error_messages label label-danger" style= "visibility: hidden; ">Pag- Ibig is  ! </p>
 								  	</div>
 								</div>
 							</div>
@@ -241,6 +293,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="inline-grp">
 								<div class="back-to-text">
 									<a href="<?php echo site_url(); ?>/crew-applicants/"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back to Crew Applicants main page</a>
+
+									 
 								</div>
 							</div>
 							<div id="error-area">
@@ -263,14 +317,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Next of Kin (full name) <div>*</div></label>
-									    <input type="text" name="next-kin" class="form-control" required>
+									    <input type="text" name="next-kin" class="form-control"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Relation <div>*</div></label>
-									    <input type="text" name="relation" class="form-control" required>
+									    <input type="text" name="relation" class="form-control"  >
 									    <p class="text-white">relation</p>
 								  	</div>
 								</div>
@@ -279,13 +333,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Address <div>*</div></label>
-									    <input type="text" name="kin-address" class="form-control" required>
+									    <input type="text" name="kin-address" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Contact Number <div>*</div></label>
-									    <input type="text" name="kin-number" class="form-control" required>
+									    <input type="text" name="kin-number" class="form-control"  >
 								  	</div>
 								</div>
 							</div>
@@ -299,15 +353,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-8 p-0">
 									<div class="form-group">
-									    <label>Dependent 1 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-1" class="form-control" required>
+									    <label>Dependent 1 (full name) </label>
+									    <input type="text" name="dependent-1" class="form-control"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-1" class="form-control" required>
+									    <label>Date of Birth  </label>
+									    <input type="date" name="dependent-birth-1" class="form-control"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -315,15 +369,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-8 p-0">
 									<div class="form-group">
-									    <label>Dependent 2 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-2" class="form-control" required>
+									    <label>Dependent 2 (full name) </label>
+									    <input type="text" name="dependent-2" class="form-control"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-2" class="form-control" required>
+									    <label>Date of Birth  </label>
+									    <input type="date" name="dependent-birth-2" class="form-control"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -331,15 +385,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-8 p-0">
 									<div class="form-group">
-									    <label>Dependent 3 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-3" class="form-control" required>
+									    <label>Dependent 3 (full name)  </label>
+									    <input type="text" name="dependent-3" class="form-control"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-3" class="form-control" required>
+									    <label>Date of Birth  </label>
+									    <input type="date" name="dependent-birth-3" class="form-control"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -347,15 +401,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-8 p-0">
 									<div class="form-group">
-									    <label>Dependent 4 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-4" class="form-control" required>
+									    <label>Dependent 4 (full name)  </label>
+									    <input type="text" name="dependent-4" class="form-control"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-4" class="form-control" required>
+									    <input type="date" name="dependent-birth-4" class="form-control"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -385,13 +439,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>School <div>*</div></label>
-									    <input type="text" name="school" class="form-control" required>
+									    <input type="text" name="school" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>Course <div>*</div></label>
-									    <input type="text" name="course" class="form-control" required>
+									    <input type="text" name="course" class="form-control"  >
 								  	</div>
 								</div>
 							</div>
@@ -399,13 +453,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>Year Graduated <div>*</div></label>
-									    <input type="text" name="yr-graduated" class="form-control" required>
+									    <input type="text" name="yr-graduated" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>English Proficiency <div>*</div></label>
-									    <input type="text" name="eng-prof" class="form-control" required>
+									    <input type="text" name="eng-prof" class="form-control"  >
 								  	</div>
 								</div>
 							</div>
@@ -419,46 +473,46 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>ID Number <div>*</div></label>
-									    <input type="text" name="id-number" class="form-control" required>
+									    <label>ID Number</label>
+									    <input type="text" name="id-number" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>Rank <div>*</div></label>
-									    <input type="text" name="rank" class="form-control" required>
+									    <label>Rank </label>
+									    <input type="text" name="rank" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>Vessel <div>*</div></label>
-									    <input type="text" name="vessel" class="form-control" required>
+									    <label>Vessel </label>
+									    <input type="text" name="vessel" class="form-control"  >
 								  	</div>
 								</div>
 							</div>
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Total Sea Service <div>*</div></label>
-									    <input type="text" name="sea-service" class="form-control" required>
+									    <label>Total Sea Service </label>
+									    <input type="text" name="sea-service" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Seatime (Pres.Rank) <div>*</div></label>
-									    <input type="text" name="seatime" class="form-control" required>
+									    <label>Seatime (Pres.Rank)</label>
+									    <input type="text" name="seatime" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Years with Company <div>*</div></label>
-									    <input type="text" name="yrs-company" class="form-control" required>
+									    <label>Years with Company </label>
+									    <input type="text" name="yrs-company" class="form-control"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Years with GLOCAL/Kambara <div>*</div></label>
-									    <input type="text" name="yrs-glocal" class="form-control" required>
+									    <label>Years with GLOCAL/Kambara </label>
+									    <input type="text" name="yrs-glocal" class="form-control"  >
 								  	</div>
 								</div>
 							</div>
@@ -487,21 +541,21 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Passport Number <div>*</div></label>
-									    <input type="text" name="passport-number" class="form-control" required>
+									    <input type="text" name="passport-number" class="form-control"  >
 									    <p class="text-white">passport</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="passport-issued" class="form-control" required>
+									    <input type="date" name="passport-issued" class="form-control"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Expiry <div>*</div></label>
-									    <input type="date" name="passport-expiry" class="form-control" required>
+									    <input type="date" name="passport-expiry" class="form-control"  >
 									    <p class="text-white">expiry</p>
 								  	</div>
 								</div>
@@ -512,21 +566,21 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Sbook (PH) <div>*</div></label>
-									    <input type="text" name="sbook" class="form-control" required>
+									    <input type="text" name="sbook" class="form-control"  >
 									    <p class="text-white">sbook</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="sbook-issued" class="form-control" required>
+									    <input type="date" name="sbook-issued" class="form-control"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Expiry <div>*</div></label>
-									    <input type="date" name="sbook-expiry" class="form-control" required>
+									    <input type="date" name="sbook-expiry" class="form-control"  >
 									    <p class="text-white">expiry</p>
 								  	</div>
 								</div>
@@ -537,14 +591,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>SRC <div>*</div></label>
-									    <input type="text" name="src" class="form-control" required>
+									    <input type="text" name="src" class="form-control"  >
 									    <p class="text-white">src</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="src-issued" class="form-control" required>
+									    <input type="date" name="src-issued" class="form-control"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
@@ -555,14 +609,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>License (PH) <div>*</div></label>
-									    <input type="text" name="license" class="form-control" required>
+									    <input type="text" name="license" class="form-control"  >
 									    <p class="text-white">license</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="license-issued" class="form-control" required>
+									    <input type="date" name="license-issued" class="form-control"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
@@ -573,14 +627,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>US Visa <div>*</div></label>
-									    <input type="text" name="us-visa" class="form-control" required>
+									    <input type="text" name="us-visa" class="form-control"  >
 									    <p class="text-white">us visa</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Expiry <div>*</div></label>
-									    <input type="date" name="us-expiry" class="form-control" required>
+									    <input type="date" name="us-expiry" class="form-control"  >
 									    <p class="text-white">expiry</p>
 								  	</div>
 								</div>
@@ -594,15 +648,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								</div>
 								<div class="col-md-8 p-0">
 									<div class="form-group">
-									    <label>Document Name <div>*</div></label>
-									    <input type="text" name="docs-name[]" class="form-control" placeholder="Training in Advance Firefighting (COP)" value="Training in required Advance Firefighting (COP)">
+									    <label>Document Name  </label>
+									    <input type="text" name="docs-name[]" class="form-control" placeholder="Training in Advance Firefighting (COP)" value="Training in   Advance Firefighting (COP)">
 									    <p class="text-white">docname</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>Document Number <div>*</div></label>
-									    <input type="text" name="docs-number[]" class="form-control" placeholder="17-6817" value="17-6817" required>
+									    <label>Document Number  </label>
+									    <input type="text" name="docs-number[]" class="form-control" placeholder="17-6817" value="17-6817"  >
 									    <p class="text-white">docnumber</p>
 								  	</div>
 								</div>
@@ -610,29 +664,29 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Req'd 4 <div>*</div></label>
-									    <input type="text" name="docs-reqd[]" class="form-control" placeholder="Officer" value="Officer" required>
+									    <label>Req'd 4  </label>
+									    <input type="text" name="docs-reqd[]" class="form-control" placeholder="Officer" value="Officer"  >
 									    <p class="text-white">reqd</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Grade <div>*</div></label>
-									    <input type="text" name="docs-grade[]" class="form-control" required>
+									    <label>Grade  </label>
+									    <input type="text" name="docs-grade[]" class="form-control"  >
 									    <p class="text-white">grade</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Issued <div>*</div></label>
-									    <input type="date" name="docs-issued[]" class="form-control" required>
+									    <label>Issued  </label>
+									    <input type="date" name="docs-issued[]" class="form-control"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
-									    <label>Expiry <div>*</div></label>
-									    <input type="date" name="docs-expiry[]" class="form-control" required>
+									    <label>Expiry  </label>
+									    <input type="date" name="docs-expiry[]" class="form-control"  >
 									    <p class="text-white">expiry</p>
 								  	</div>
 								</div>
@@ -667,7 +721,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-12 p-0">
 									<div class="form-group">
 									    <label>Company Name</label>
-									    <input type="text" name="history-name[]" class="form-control" value="Maersk" required>
+									    <input type="text" name="history-name[]" class="form-control" value="Maersk"  >
 									    <p class="text-white">companyname</p>
 								  	</div>
 								</div>
@@ -676,28 +730,28 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Rank</label>
-									    <input type="text" name="history-rank[]" class="form-control" value="C/E" required>
+									    <input type="text" name="history-rank[]" class="form-control" value="C/E"  >
 									    <p class="text-white">rank</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Embark</label>
-									    <input type="date" name="history-embark[]" class="form-control" value="2010-02-08" required>
+									    <input type="date" name="history-embark[]" class="form-control" value="2010-02-08"  >
 									    <p class="text-white">embark</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Disembark</label>
-									    <input type="date" name="history-disembark[]" class="form-control" value="2010-05-01" required>
+									    <input type="date" name="history-disembark[]" class="form-control" value="2010-05-01"  >
 									    <p class="text-white">disembark</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Vessel Name</label>
-									    <input type="text" name="history-vessel[]" class="form-control" value="NedlloydAdrian" required>
+									    <input type="text" name="history-vessel[]" class="form-control" value="NedlloydAdrian"  >
 									    <p class="text-white">vesselname</p>
 								  	</div>
 								</div>
@@ -706,42 +760,42 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Type</label>
-									    <input type="text" name="history-type[]" class="form-control" value="CNTR" required>
+									    <input type="text" name="history-type[]" class="form-control" value="CNTR"  >
 									    <p class="text-white">type</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>GT</label>
-									    <input type="text" name="history-gt[]" class="form-control" value="26,833" required>
+									    <input type="text" name="history-gt[]" class="form-control" value="26,833"  >
 									    <p class="text-white">gt</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Engine</label>
-									    <input type="text" name="history-engine[]" class="form-control" value="SLZR" required>
+									    <input type="text" name="history-engine[]" class="form-control" value="SLZR"  >
 									    <p class="text-white">engine</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>HP</label>
-									    <input type="text" name="history-hp[]" class="form-control" value="21,560" required>
+									    <input type="text" name="history-hp[]" class="form-control" value="21,560"  >
 									    <p class="text-white">21,560</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Reason</label>
-									    <input type="text" name="history-reason[]" class="form-control" value="Completed" required>
+									    <input type="text" name="history-reason[]" class="form-control" value="Completed"  >
 									    <p class="text-white">reason</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>FR</label>
-									    <input type="text" name="history-fr" class="form-control" value="N.A" required>
+									    <input type="text" name="history-fr" class="form-control" value="N.A"  >
 									    <p class="text-white">fr</p>
 								  	</div>
 								</div>
@@ -760,7 +814,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							</div>
 							<div class="inline-grp fl-right">
 								<div class="back-to-text">
-									<button type="submit" class="btn btn-default btn-submit btn-red">Review <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+									<button type="submit" class="btn btn-default btn-submit btn-red btn_review_form">Review <i class="fa fa-angle-right" aria-hidden="true"></i></button>
 								</div>
 							</div>
 						</div>
@@ -786,7 +840,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Full Name <div>*</div></label>
-									    <input type="text" class="form-control" name="full-name" value="<?php echo $form_data["full-name"]; ?>" required>
+									    <input type="text" class="form-control" name="full-name" value="<?php echo $form_data["full-name"]; ?>"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
@@ -799,7 +853,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 										    </div>
 										    <div class="inline-grp fl-right">
 										    	<button type="button" id="application-choose-file">Choose File</button>
-										    	<input type="file" class="form-control" id="input-file" style="display: none" required>
+										    	<input type="file" class="form-control" id="input-file" style="display: none"  >
 										    </div>
 									    </div>
 									    
@@ -811,7 +865,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-12 p-0">
 									<div class="form-group">
 									    <label>Address <div>*</div></label>
-									    <input type="text" name="address" class="form-control" value="<?php echo $form_data["address"]; ?>" required>
+									    <input type="text" name="address" class="form-control" value="<?php echo $form_data["address"]; ?>"  >
 								  	</div>
 								</div>
 								
@@ -820,7 +874,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Age <div>*</div></label>
-									    <input type="text" name="age" class="form-control" value="<?php echo $form_data["age"]; ?>" required>
+									    <input type="text" name="age" class="form-control" value="<?php echo $form_data["age"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
@@ -836,7 +890,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 									    	}
 									    ?>
 									    <select name="gender" class="form-control">
-										  <option value="select">-Select-</option>
+										  <option value="none">Select-</option>
 										  <option value="male" <?php echo $male; ?>>Male</option>
 										  <option value="female" <?php echo $female; ?>>Female</option>
 										</select>
@@ -845,13 +899,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" class="form-control" name="date-birth" value="<?php echo $form_data["date-birth"]; ?>" required>
+									    <input type="date" class="form-control" name="date-birth" value="<?php echo $form_data["date-birth"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Place of Birth <div>*</div></label>
-									    <input type="text" class="form-control" name="place-birth" value="<?php echo $form_data["place-birth"]; ?>" required>
+									    <input type="text" class="form-control" name="place-birth" value="<?php echo $form_data["place-birth"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -859,7 +913,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Nationality <div>*</div></label>
-									    <input type="text" class="form-control" name="nationality" value="<?php echo $form_data["nationality"]; ?>" required>
+									    <input type="text" class="form-control" name="nationality" value="<?php echo $form_data["nationality"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
@@ -878,13 +932,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Religion <div>*</div></label>
-									    <input type="text" class="form-control" name="religion" value="<?php echo $form_data["religion"]; ?>" required>
+									    <input type="text" class="form-control" name="religion" value="<?php echo $form_data["religion"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Contact Number <div>*</div></label>
-									    <input type="text" name="contact-number" class="form-control" value=" <?php echo $form_data["contact-number"]; ?>" required>
+									    <input type="text" name="contact-number" class="form-control" value=" <?php echo $form_data["contact-number"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -892,37 +946,37 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Blood Type <div>*</div></label>
-									    <input type="text" name="blood-type" class="form-control" value="<?php echo $form_data["blood-type"]; ?>" required>
+									    <input type="text" name="blood-type" class="form-control" value="<?php echo $form_data["blood-type"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Height (cm) <div>*</div></label>
-									    <input type="text" name="height" class="form-control" value="<?php echo $form_data["height"]; ?>" required>
+									    <input type="text" name="height" class="form-control" value="<?php echo $form_data["height"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Weight (kg) <div>*</div></label>
-									    <input type="text" name="weight" class="form-control" value="<?php echo $form_data["weight"]; ?>" required>
+									    <input type="text" name="weight" class="form-control" value="<?php echo $form_data["weight"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Waist (cm) <div>*</div></label>
-									    <input type="text" name="waist" class="form-control" value="<?php echo $form_data["waist"]; ?>" required>
+									    <input type="text" name="waist" class="form-control" value="<?php echo $form_data["waist"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Coat Size <div>*</div></label>
-									    <input type="text" name="coat-size" class="form-control" value="<?php echo $form_data["coat-size"]; ?>" required>
+									    <input type="text" name="coat-size" class="form-control" value="<?php echo $form_data["coat-size"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Shoe Size <div>*</div></label>
-									    <input type="text" name="shoe-size" class="form-control" value="<?php echo $form_data["shoe-size"]; ?>" required>
+									    <input type="text" name="shoe-size" class="form-control" value="<?php echo $form_data["shoe-size"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -932,25 +986,25 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>SSS <div>*</div></label>
-									    <input type="text" name="sss" class="form-control" value="<?php echo $form_data["sss"]; ?>" required>
+									    <input type="text" name="sss" class="form-control" value="<?php echo $form_data["sss"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Philhealth <div>*</div></label>
-									    <input type="text" name="philhealth" class="form-control" value="<?php echo $form_data["philhealth"]; ?>" required>
+									    <input type="text" name="philhealth" class="form-control" value="<?php echo $form_data["philhealth"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Tax ID Number <div>*</div></label>
-									    <input type="text" name="tax-id" class="form-control" value="<?php echo $form_data["tax-id"]; ?>" required>
+									    <input type="text" name="tax-id" class="form-control" value="<?php echo $form_data["tax-id"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Pag-ibig <div>*</div></label>
-									    <input type="text" name="pag-ibig" class="form-control" value="<?php echo $form_data["pag-ibig"]; ?>" required>
+									    <input type="text" name="pag-ibig" class="form-control" value="<?php echo $form_data["pag-ibig"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -967,14 +1021,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Next of Kin (full name) <div>*</div></label>
-									    <input type="text" name="next-kin" class="form-control" value="<?php echo $form_data["next-kin"]; ?>" required>
+									    <input type="text" name="next-kin" class="form-control" value="<?php echo $form_data["next-kin"]; ?>"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Relation <div>*</div></label>
-									    <input type="text" name="relation" class="form-control" value="<?php echo $form_data["relation"]; ?>" required>
+									    <input type="text" name="relation" class="form-control" value="<?php echo $form_data["relation"]; ?>"  >
 									    <p class="text-white">relation</p>
 								  	</div>
 								</div>
@@ -983,13 +1037,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Address <div>*</div></label>
-									    <input type="text" name="kin-address" class="form-control" value="<?php echo $form_data["kin-address"]; ?>" required>
+									    <input type="text" name="kin-address" class="form-control" value="<?php echo $form_data["kin-address"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Contact Number <div>*</div></label>
-									    <input type="text" name="kin-number" class="form-control" value="<?php echo $form_data["kin-number"]; ?>" required>
+									    <input type="text" name="kin-number" class="form-control" value="<?php echo $form_data["kin-number"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -1004,14 +1058,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Dependent 1 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-1" class="form-control" value="<?php echo $form_data["dependent-1"]; ?>" required>
+									    <input type="text" name="dependent-1" class="form-control" value="<?php echo $form_data["dependent-1"]; ?>"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-1" class="form-control" value="<?php echo $form_data["dependent-birth-1"]; ?>" required>
+									    <input type="date" name="dependent-birth-1" class="form-control" value="<?php echo $form_data["dependent-birth-1"]; ?>"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -1020,14 +1074,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Dependent 2 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-2" class="form-control" value="<?php echo $form_data["dependent-2"]; ?>" required>
+									    <input type="text" name="dependent-2" class="form-control" value="<?php echo $form_data["dependent-2"]; ?>"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-2" class="form-control" value="<?php echo $form_data["dependent-birth-2"]; ?>" required>
+									    <input type="date" name="dependent-birth-2" class="form-control" value="<?php echo $form_data["dependent-birth-2"]; ?>"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -1036,14 +1090,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>Dependent 3 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-3" class="form-control" value="<?php echo $form_data["dependent-3"]; ?>" required>
+									    <input type="text" name="dependent-3" class="form-control" value="<?php echo $form_data["dependent-3"]; ?>"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-3" class="form-control" value="<?php echo $form_data["dependent-birth-3"]; ?>" required>
+									    <input type="date" name="dependent-birth-3" class="form-control" value="<?php echo $form_data["dependent-birth-3"]; ?>"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -1051,15 +1105,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							<div class="form-personal-holder afterclear">
 								<div class="col-md-8 p-0">
 									<div class="form-group">
-									    <label>Dependent 4 (full name) <div>*</div></label>
-									    <input type="text" name="dependent-4" class="form-control" value="<?php echo $form_data["dependent-4"]; ?>" required>
+									    <label>Dependent 4 (full name) </label>
+									    <input type="text" name="dependent-4" class="form-control" value="<?php echo $form_data["dependent-4"]; ?>"  >
 									    <p>Last Name, First Name & Middle Name</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
-									    <label>Date of Birth <div>*</div></label>
-									    <input type="date" name="dependent-birth-4" class="form-control" value="<?php echo $form_data["dependent-birth-4"]; ?>" required>
+									    <label>Date of Birth </label>
+									    <input type="date" name="dependent-birth-4" class="form-control" value="<?php echo $form_data["dependent-birth-4"]; ?>"  >
 									    <p class="text-white">date-birth</p>
 								  	</div>
 								</div>
@@ -1077,13 +1131,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>School <div>*</div></label>
-									    <input type="text" name="school" class="form-control" value="<?php echo $form_data["school"]; ?>" required>
+									    <input type="text" name="school" class="form-control" value="<?php echo $form_data["school"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>Course <div>*</div></label>
-									    <input type="text" name="course" class="form-control" value="<?php echo $form_data["course"]; ?>" required>
+									    <input type="text" name="course" class="form-control" value="<?php echo $form_data["course"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -1091,13 +1145,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>Year Graduated <div>*</div></label>
-									    <input type="text" name="yr-graduated" class="form-control" value="<?php echo $form_data["yr-graduated"]; ?>" required>
+									    <input type="text" name="yr-graduated" class="form-control" value="<?php echo $form_data["yr-graduated"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-6 p-0">
 									<div class="form-group">
 									    <label>English Proficiency <div>*</div></label>
-									    <input type="text" name="eng-prof" class="form-control" value="<?php echo $form_data["eng-prof"]; ?>" required>
+									    <input type="text" name="eng-prof" class="form-control" value="<?php echo $form_data["eng-prof"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -1112,19 +1166,19 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>ID Number <div>*</div></label>
-									    <input type="text" name="id-number" class="form-control" value="<?php echo $form_data["id-number"]; ?>" required>
+									    <input type="text" name="id-number" class="form-control" value="<?php echo $form_data["id-number"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Rank <div>*</div></label>
-									    <input type="text" name="rank" class="form-control" value="<?php echo $form_data["rank"]; ?>" required>
+									    <input type="text" name="rank" class="form-control" value="<?php echo $form_data["rank"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Vessel <div>*</div></label>
-									    <input type="text" name="vessel" class="form-control" value="<?php echo $form_data["vessel"]; ?>" required>
+									    <input type="text" name="vessel" class="form-control" value="<?php echo $form_data["vessel"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -1132,25 +1186,25 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Total Sea Service <div>*</div></label>
-									    <input type="text" name="sea-service" class="form-control" value="<?php echo $form_data["sea-service"]; ?>" required>
+									    <input type="text" name="sea-service" class="form-control" value="<?php echo $form_data["sea-service"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Seatime (Pres.Rank) <div>*</div></label>
-									    <input type="text" name="seatime" class="form-control" value="<?php echo $form_data["seatime"]; ?>" required>
+									    <input type="text" name="seatime" class="form-control" value="<?php echo $form_data["seatime"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Years with Company <div>*</div></label>
-									    <input type="text" name="yrs-company" class="form-control" value="<?php echo $form_data["yrs-company"]; ?>" required>
+									    <input type="text" name="yrs-company" class="form-control" value="<?php echo $form_data["yrs-company"]; ?>"  >
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Years with GLOCAL/Kambara <div>*</div></label>
-									    <input type="text" name="yrs-glocal" class="form-control" value="<?php echo $form_data["yrs-glocal"]; ?>" required>
+									    <input type="text" name="yrs-glocal" class="form-control" value="<?php echo $form_data["yrs-glocal"]; ?>"  >
 								  	</div>
 								</div>
 							</div>
@@ -1167,21 +1221,21 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Passport Number <div>*</div></label>
-									    <input type="text" name="passport-number" class="form-control" value="<?php echo $form_data["passport-number"]; ?>" required>
+									    <input type="text" name="passport-number" class="form-control" value="<?php echo $form_data["passport-number"]; ?>"  >
 									    <p class="text-white">passport</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="passport-issued" class="form-control" value="<?php echo $form_data["passport-issued"]; ?>" required>
+									    <input type="date" name="passport-issued" class="form-control" value="<?php echo $form_data["passport-issued"]; ?>"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Expiry <div>*</div></label>
-									    <input type="date" name="passport-expiry" class="form-control" value="<?php echo $form_data["passport-expiry"]; ?>" required>
+									    <input type="date" name="passport-expiry" class="form-control" value="<?php echo $form_data["passport-expiry"]; ?>"  >
 									    <p class="text-white">expiry</p>
 								  	</div>
 								</div>
@@ -1192,21 +1246,21 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Sbook (PH) <div>*</div></label>
-									    <input type="text" name="sbook" class="form-control" value="<?php echo $form_data["sbook"]; ?>" required>
+									    <input type="text" name="sbook" class="form-control" value="<?php echo $form_data["sbook"]; ?>"  >
 									    <p class="text-white">sbook</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="sbook-issued" class="form-control" value="<?php echo $form_data["sbook-issued"]; ?>" required>
+									    <input type="date" name="sbook-issued" class="form-control" value="<?php echo $form_data["sbook-issued"]; ?>"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Expiry <div>*</div></label>
-									    <input type="date" name="sbook-expiry" class="form-control" value="<?php echo $form_data["sbook-expiry"]; ?>" required>
+									    <input type="date" name="sbook-expiry" class="form-control" value="<?php echo $form_data["sbook-expiry"]; ?>"  >
 									    <p class="text-white">expiry</p>
 								  	</div>
 								</div>
@@ -1217,14 +1271,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>SRC <div>*</div></label>
-									    <input type="text" name="src" class="form-control" value="<?php echo $form_data["src"]; ?>" required>
+									    <input type="text" name="src" class="form-control" value="<?php echo $form_data["src"]; ?>"  >
 									    <p class="text-white">src</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="src-issued" class="form-control" value="<?php echo $form_data["src-issued"]; ?>" required>
+									    <input type="date" name="src-issued" class="form-control" value="<?php echo $form_data["src-issued"]; ?>"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
@@ -1235,14 +1289,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>License (PH) <div>*</div></label>
-									    <input type="text" name="license" class="form-control" value="<?php echo $form_data["license"]; ?>" required>
+									    <input type="text" name="license" class="form-control" value="<?php echo $form_data["license"]; ?>"  >
 									    <p class="text-white">license</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Issued <div>*</div></label>
-									    <input type="date" name="license-issued" class="form-control" value="<?php echo $form_data["license-issued"]; ?>" required>
+									    <input type="date" name="license-issued" class="form-control" value="<?php echo $form_data["license-issued"]; ?>"  >
 									    <p class="text-white">issued</p>
 								  	</div>
 								</div>
@@ -1253,14 +1307,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-8 p-0">
 									<div class="form-group">
 									    <label>US Visa <div>*</div></label>
-									    <input type="text" name="us-visa" class="form-control" value="<?php echo $form_data["us-visa"]; ?>" required>
+									    <input type="text" name="us-visa" class="form-control" value="<?php echo $form_data["us-visa"]; ?>"  >
 									    <p class="text-white">us visa</p>
 								  	</div>
 								</div>
 								<div class="col-md-4 p-0">
 									<div class="form-group">
 									    <label>Expiry <div>*</div></label>
-									    <input type="date" name="us-expiry" class="form-control" value="<?php echo $form_data["us-expiry"]; ?>" required>
+									    <input type="date" name="us-expiry" class="form-control" value="<?php echo $form_data["us-expiry"]; ?>"  >
 									    <p class="text-white">expiry</p>
 								  	</div>
 								</div>
@@ -1278,14 +1332,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 										<div class="col-md-8 p-0">
 											<div class="form-group">
 											    <label>Document Name <div>*</div></label>
-											    <input type="text" name="docs-name" class="form-control" value="<?php echo $form_data["docs-name"][$i]; ?>" required>
+											    <input type="text" name="docs-name" class="form-control" value="<?php echo $form_data["docs-name"][$i]; ?>"  >
 											    <p class="text-white">docname</p>
 										  	</div>
 										</div>
 										<div class="col-md-4 p-0">
 											<div class="form-group">
 											    <label>Document Number <div>*</div></label>
-											    <input type="text" name="docs-number" class="form-control" value="<?php echo $form_data["docs-number"][$i]; ?>" required>
+											    <input type="text" name="docs-number" class="form-control" value="<?php echo $form_data["docs-number"][$i]; ?>"  >
 											    <p class="text-white">docnumber</p>
 										  	</div>
 										</div>
@@ -1294,28 +1348,28 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 										<div class="col-md-3 p-0">
 											<div class="form-group">
 											    <label>Req'd 4 <div>*</div></label>
-											    <input type="text" name="docs-reqd" class="form-control" value="<?php echo $form_data["docs-reqd"][$i]; ?>" required>
+											    <input type="text" name="docs-reqd" class="form-control" value="<?php echo $form_data["docs-reqd"][$i]; ?>"  >
 											    <p class="text-white">reqd</p>
 										  	</div>
 										</div>
 										<div class="col-md-3 p-0">
 											<div class="form-group">
 											    <label>Grade <div>*</div></label>
-											    <input type="text" name="docs-grade" class="form-control" value="<?php echo $form_data["docs-grade"][$i]; ?>" required>
+											    <input type="text" name="docs-grade" class="form-control" value="<?php echo $form_data["docs-grade"][$i]; ?>"  >
 											    <p class="text-white">grade</p>
 										  	</div>
 										</div>
 										<div class="col-md-3 p-0">
 											<div class="form-group">
 											    <label>Issued <div>*</div></label>
-											    <input type="date" name="docs-issued" class="form-control" value="<?php echo $form_data["docs-issued"][$i]; ?>" required>
+											    <input type="date" name="docs-issued" class="form-control" value="<?php echo $form_data["docs-issued"][$i]; ?>"  >
 											    <p class="text-white">issued</p>
 										  	</div>
 										</div>
 										<div class="col-md-3 p-0">
 											<div class="form-group">
 											    <label>Expiry <div>*</div></label>
-											    <input type="date" class="form-control" value="<?php echo $form_data["docs-expiry"][$i]; ?>" required>
+											    <input type="date" class="form-control" value="<?php echo $form_data["docs-expiry"][$i]; ?>"  >
 											    <p class="text-white">expiry</p>
 										  	</div>
 										</div>
@@ -1339,7 +1393,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-12 p-0">
 									<div class="form-group">
 									    <label>Company Name</label>
-									    <input type="text" class="form-control" name="history-name" value="<?php echo $form_data["history-name"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-name" value="<?php echo $form_data["history-name"][$i]; ?>"  >
 									    <p class="text-white">companyname</p>
 								  	</div>
 								</div>
@@ -1348,28 +1402,28 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Rank</label>
-									    <input type="text" class="form-control" name="history-rank" value="<?php echo $form_data["history-rank"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-rank" value="<?php echo $form_data["history-rank"][$i]; ?>"  >
 									    <p class="text-white">rank</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Embark</label>
-									    <input type="date" class="form-control" name="history-embark" value="<?php echo $form_data["history-embark"][$i]; ?>" required>
+									    <input type="date" class="form-control" name="history-embark" value="<?php echo $form_data["history-embark"][$i]; ?>"  >
 									    <p class="text-white">embark</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Disembark</label>
-									    <input type="date" class="form-control" name="history-disembark" value="<?php echo $form_data["history-disembark"][$i]; ?>" required>
+									    <input type="date" class="form-control" name="history-disembark" value="<?php echo $form_data["history-disembark"][$i]; ?>"  >
 									    <p class="text-white">disembark</p>
 								  	</div>
 								</div>
 								<div class="col-md-3 p-0">
 									<div class="form-group">
 									    <label>Vessel Name</label>
-									    <input type="text" class="form-control" name="history-vessel" value="<?php echo $form_data["history-vessel"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-vessel" value="<?php echo $form_data["history-vessel"][$i]; ?>"  >
 									    <p class="text-white">vesselname</p>
 								  	</div>
 								</div>
@@ -1378,42 +1432,42 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Type</label>
-									    <input type="text" class="form-control" name="history-type" value="<?php echo $form_data["history-type"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-type" value="<?php echo $form_data["history-type"][$i]; ?>"  >
 									    <p class="text-white">type</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>GT</label>
-									    <input type="text" class="form-control" name="history-gt" value="<?php echo $form_data["history-gt"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-gt" value="<?php echo $form_data["history-gt"][$i]; ?>"  >
 									    <p class="text-white">gt</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Engine</label>
-									    <input type="text" class="form-control" name="history-engine" value="<?php echo $form_data["history-engine"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-engine" value="<?php echo $form_data["history-engine"][$i]; ?>"  >
 									    <p class="text-white">engine</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>HP</label>
-									    <input type="text" class="form-control" name="history-hp" value="<?php echo $form_data["history-hp"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-hp" value="<?php echo $form_data["history-hp"][$i]; ?>"  >
 									    <p class="text-white">21,560</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>Reason</label>
-									    <input type="text" class="form-control" name="history-reason"  value="<?php echo $form_data["history-reason"][$i]; ?>" required>
+									    <input type="text" class="form-control" name="history-reason"  value="<?php echo $form_data["history-reason"][$i]; ?>"  >
 									    <p class="text-white">reason</p>
 								  	</div>
 								</div>
 								<div class="col-md-2 p-0">
 									<div class="form-group">
 									    <label>FR</label>
-									    <input type="text" class="form-control"  name="history-fr" value="<?php echo $form_data["history-fr"][$i]; ?>" required>
+									    <input type="text" class="form-control"  name="history-fr" value="<?php echo $form_data["history-fr"][$i]; ?>"  >
 									    <p class="text-white">fr</p>
 								  	</div>
 								</div>
@@ -1429,7 +1483,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 							</div>
 							<div class="inline-grp fl-right">
 								<div class="back-to-text">
-									<input type="checkbox" id="agreement" required>
+									<input type="checkbox" id="agreement"  >
 									By clicking the submit button, you agree to the <span>terms & conditions</span>.
 									<div class="gap-30"></div>
 									<button href="#" type="submit" id="submit-form" class="btn btn-default btn-submit btn-red fl-right m-0" style="pointer-events:none">Submit</button>
@@ -1446,10 +1500,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 endwhile; else :
 endif;
 get_footer(); ?>
+
 <script type="text/javascript">
-$(document).ready(function(){
+	$(document).ready(function(){
+
 		// Validation(){
-		$.fn.serializeObject = function()
+		// $(document).on("submit", '#application-form',function(e) {
+ 		$.fn.serializeObject = function()
 		{
 		   var o = {};
 		   var a = this.serializeArray();
@@ -1466,472 +1523,1167 @@ $(document).ready(function(){
 		   return o;
 		};
 
+ 
+
+
 		function personal_tab()
 		{
     		var o = {};
 			form = $('#application-form').serializeObject();
+			var return_val = new Array();
+
 
 			if(!$('input[name="file-photo"]').val()){
-				return {  
+ 
+				return_val.push({  
 	                status: 0,
 	                message: 'file-photo',
-    			}
+	                class: 'file_photo_error_message',
+	                name_field: 'file-photo'
+    			});
+			
 			}
+
 			if(!form["full-name"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'full-name',
-    			}
+	                class: 'full_name_error_message',
+	                name_field: 'full-name'
+    			});
+
 			}
+
  			if(!form["address"]){
-				return {  
+
+    			return_val.push ({  
 	                status: 0,
 	                message: 'address',
-    			}
+	                class: 'address_error_message',
+	                name_field: 'address'
+    			});
 			}
  			if(!form["age"]){
-				return {  
+
+    			return_val.push ({  
 	                status: 0,
 	                message: 'age',
-    			}
+	                class: 'age_error_message',
+	                name_field: 'age'
+
+    			});
+
 			}
- 			if(!$('select[name="gender"]').val()){
-				return {  
+ 			if(!$('select[name="gender"]') || $('select[name="gender"]').val() == "none"){
+				
+				return_val.push ({  
 	                status: 0,
 	                message: 'gender',
-    			}
+	                class: 'gender_error_message',
+	                name_field: 'gender'
+
+    			});
+  
 			}
+
  			if(!form["date-birth"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'date-birth',
-    			}
+	                class: 'dob_error_message',
+	                name_field: 'date-birth'
+
+    			});
 			}
+
+ 
  			if(!form["place-birth"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'place-birth',
-    			}
+	                class: 'place_birth_error_message',
+	                name_field: 'place-birth'
+
+    			}); 
 			}
+
  			if(!form["nationality"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'nationality',
-    			}
+	                class: 'nationality_error_message',
+	                name_field: 'nationality'
+
+    			}); 
 			}
- 			if(!$('select[name="civil-status"]').val()){
-				return {  
+
+ 			if(!$('select[name="civil-status"]').val() || $('select[name="civil-status"]').val() == "none"){
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'civil-status',
-    			}
+	                class: 'civil_status_error_message',
+	                name_field: 'civil-status'
+
+    			}); 
 			}
+
  			if(!form["religion"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'religion',
-    			}
+	                class: 'religion_error_message',
+	                name_field: 'religion'
+
+    			}); 
 			}
+
  			if(!form["contact-number"]){
-				return {  
+				
+				return_val.push ({  
 	                status: 0,
 	                message: 'contact-number',
-    			}
+	                class: 'contact_num_error_message',
+	                name_field: 'contact-number'
+
+    			}); 
+
 			}
  			if(!form["blood-type"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
-	                message: 'blood-type',
-    			}
+	                message: 'blood',
+	                class: 'blood_type_error_message',
+	                name_field: 'blood-type'
+
+    			}); 
 			}
+ 
+
  			if(!form["height"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'height',
-    			}
+	                class: 'height_error_message',
+	                name_field: 'height'
+
+    			}); 
+
 			}
+
+
  			if(!form["weight"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'weight',
-    			}
+	                class: 'weight_error_message',
+	                name_field: 'weight'
+
+
+    			}); 
 			}
+
+
  			if(!form["waist"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'waist',
-    			}
+	                class: 'weight_error_message',
+	                name_field: 'waist'
+
+    			}); 
 			}
+
  			if(!form["coat-size"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'coat-size',
-    			}
+	                class: 'coat_size_error_message',
+	                name_field: 'coat-size'
+
+    			}); 
 			}
+
  			if(!form["shoe-size"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'shoe-size',
-    			}
+	                class: 'shoe_size_error_message',
+	                name_field: 'shoe-size'
+
+    			}); 
 			}
- 			if(!form["sss"]){
-				return {  
+
+  			if(!form["sss"]){
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'sss',
-    			}
+	                class: 'sss_error_message',
+	                name_field: 'sss'
+
+    			}); 
+
 			}
+
  			if(!form["philhealth"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
-	                message: 'philhealth',
-    			}
+	                message: 'philhealth-size',
+	                class: 'philhealth_error_message',
+	                name_field: 'philhealth'
+
+    			}); 
+
 			}
+
  			if(!form["tax-id"]){
-				return {  
+				
+				return_val.push ({  
 	                status: 0,
 	                message: 'tax-id',
-    			}
+	                class: 'tax_id_error_message',
+	                name_field: 'tax-id'
+
+    			}); 
 			}
+
+
  			if(!form["pag-ibig"]){
-				return {  
+
+				return_val.push ({  
 	                status: 0,
 	                message: 'pag-ibig',
-    			}
+	                class: 'pagibig_error_message',
+	                name_field: 'pag-ibig'
+
+    			}); 
  			}
 
-			return  {  
-                status: 1,
-                message: 'all clear',
-			}
+
+ 			return return_val;
+
+			
 		}
 
 		function next_kin_tab()
 		{
     		var o = {};
 			form = $('#application-form').serializeObject();
+  			var return_val = new Array();
 
+			if(!$('input[name="file-photo"]').val()){
+ 
+				return_val.push({  
+	                status: 0,
+	                message: 'file-photo',
+	                class: 'file_photo_error_message',
+	                name_field: 'file-photo'
+    			});
+			
+			}
+ 
 			if(!form["next-kin"]){
-				return {
-					status: 0,
-					message: "next-kin"
-				}
+				 
+				return_val.push({  
+	                status: 0,
+	                message: 'next-kin',
+	                class: 'next-kin_error_message',
+	                name_field: 'next-kin'
+    			});
+
+
 			}
+
 			if(!form["relation"]){
-				return {
-					status: 0,
-					message: "relation"
-				}
+								 
+				return_val.push({  
+	                status: 0,
+	                message: 'relation',
+	                class: 'relation_error_message',
+	                name_field: 'relation'
+    			}); 
 			}
+
 			if(!form["kin-address"]){
-				return {
-					status: 0,
-					message: "kin-address"
-				}
+
+					return_val.push({  
+	                status: 0,
+	                message: 'kin-address',
+	                class: 'kin-address_error_message',
+	                name_field: 'kin-address'
+    			}); 
+
 			}
+
 			if(!form["kin-number"]){
-				return {
-					status: 0,
-					message: "kin-number"
-				}
+
+				return_val.push({  
+	                status: 0,
+	                message: 'kin-number',
+	                class: 'kin-number_error_message',
+	                name_field: 'kin-number'
+    			});  
+
 			}
-			if(!form["dependent-1"]){
-				return {
-					status: 0,
-					message: "dependent-1"
-				}
-			}
-			if(!form["dependent-birth-1"]){
-				return {
-					status: 0,
-					message: "dependent-birth-1"
-				}
-			}
-			if(!form["dependent-2"]){
-				return {
-					status: 0,
-					message: "dependent-2"
-				}
-			}
-			if(!form["dependent-birth-2"]){
-				return {
-					status: 0,
-					message: "dependent-birth-2"
-				}
-			}
-			if(!form["dependent-3"]){
-				return {
-					status: 0,
-					message: "dependent-3"
-				}
-			}
-			if(!form["dependent-birth-3"]){
-				return {
-					status: 0,
-					message: "dependent-birth-3"
-				}
-			}
-			if(!form["dependent-4"]){
-				return {
-					status: 0,
-					message: "dependent-4"
-				}
-			}
-			if(!form["dependent-birth-4"]){
-				return {
-					status: 0,
-					message: "dependent-birth-4"
-				}
-			}
+
+			// if(!form["dependent-1"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-1"
+			// 	}
+			// }
+			// if(!form["dependent-birth-1"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-birth-1"
+			// 	}
+			// }
+			// if(!form["dependent-2"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-2"
+			// 	}
+			// }
+			// if(!form["dependent-birth-2"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-birth-2"
+			// 	}
+			// }
+			// if(!form["dependent-3"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-3"
+			// 	}
+			// }
+			// if(!form["dependent-birth-3"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-birth-3"
+			// 	}
+			// }
+			// if(!form["dependent-4"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-4"
+			// 	}
+			// }
+			// if(!form["dependent-birth-4"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "dependent-birth-4"
+			// 	}
+			// }
 		
-			return  {  
-                status: 1,
-                message: 'all clear',
-			}
+			return  return_val; 
+
 		}
 
 		function educational_tab()
 		{
     		var o = {};
+  			var return_val = new Array();
 			form = $('#application-form').serializeObject();
 
 			if(!form["school"]){
-				return {
-					status: 0,
-					message: "school"
-				}
+
+				return_val.push({  
+	                status: 0,
+	                message: 'school',
+	                class: 'school_error_message',
+	                name_field: 'school'
+    			});  
+
 			}
+
 			if(!form["course"]){
-				return {
-					status: 0,
-					message: "course"
-				}
+
+				return_val.push({  
+	                status: 0,
+	                message: 'course',
+	                class: 'course_error_message',
+	                name_field: 'course'
+    			});  
+
 			}
+
 			if(!form["yr-graduated"]){
-				return {
-					status: 0,
-					message: "yr-graduated"
-				}
+				
+				return_val.push({  
+	                status: 0,
+	                message: 'yr-graduated',
+	                class: 'yr-graduated_error_message',
+	                name_field: 'yr-graduated'
+    			});  
+
 			}
+			
+
 			if(!form["eng-prof"]){
-				return {
-					status: 0,
-					message: "eng-prof"
-				}
-			}
-			if(!form["id-number"]){
-				return {
-					status: 0,
-					message: "id-number"
-				}
-			}
-			if(!form["rank"]){
-				return {
-					status: 0,
-					message: "rank"
-				}
-			}
-			if(!form["vessel"]){
-				return {
-					status: 0,
-					message: "vessel"
-				}
-			}
-			if(!form["sea-service"]){
-				return {
-					status: 0,
-					message: "sea-service"
-				}
-			}
-			if(!form["seatime"]){
-				return {
-					status: 0,
-					message: "seatime"
-				}
-			}
-			if(!form["yrs-company"]){
-				return {
-					status: 0,
-					message: "yrs-company"
-				}
-			}
-			if(!form["yrs-glocal"]){
-				return {
-					status: 0,
-					message: "yrs-glocal"
-				}
-			}
+
+
+				return_val.push({  
+	                status: 0,
+	                message: 'eng-prof',
+	                class: 'eng-prof_error_message',
+	                name_field: 'eng-prof'
+    			});  
+ 
+			 }
+
+
+
+			// if(!form["id-number"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "id-number"
+			// 	}
+			// }
+			// if(!form["rank"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "rank"
+			// 	}
+			// }
+			// if(!form["vessel"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "vessel"
+			// 	}
+			// }
+			// if(!form["sea-service"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "sea-service"
+			// 	}
+			// }
+			// if(!form["seatime"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "seatime"
+			// 	}
+			// }
+			// if(!form["yrs-company"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "yrs-company"
+			// 	}
+			// }
+			// if(!form["yrs-glocal"]){
+			// 	return {
+			// 		status: 0,
+			// 		message: "yrs-glocal"
+			// 	}
+			// }
 		
-			return  {  
-                status: 1,
-                message: 'all clear',
-			}
+			return return_val;
+
 		}
 
 		function documents_tab()
 		{
+  			var return_val = new Array();
 			form = $('#application-form').serializeObject();
 
-			console.log(form);
+			console.log(form); 
 
 			if(!form["passport-number"]){
-				return {
-					status: 0,
-					message: "passport-number"
-				}
+
+					return_val.push({  
+	                status: 0,
+	                message: 'passport-number',
+	                class: 'passport-number_error_message',
+	                name_field: 'passport-number'
+    			});  
+  
 			}
 			if(!form["passport-issued"]){
-				return {
-					status: 0,
-					message: "passport-issued"
-				}
+
+				return_val.push({  
+	                status: 0,
+	                message: 'passport-issued',
+	                class: 'passport-issued_error_message',
+	                name_field: 'passport-issued'
+    			});  
+  
 			}
 			if(!form["passport-expiry"]){
-				return {
-					status: 0,
-					message: "passport-expiry"
-				}
-			}
-			if(!form["sbook"]){
-				return {
-					status: 0,
-					message: "sbook"
-				}
-			}
-			if(!form["sbook-issued"]){
-				return {
-					status: 0,
-					message: "sbook-issued"
-				}
-			}
-			if(!form["src"]){
-				return {
-					status: 0,
-					message: "src"
-				}
-			}
-			if(!form["src-issued"]){
-				return {
-					status: 0,
-					message: "src-issued"
-				}
-			}
-			if(!form["license"]){
-				return {
-					status: 0,
-					message: "license"
-				}
-			}
-			if(!form["license-issued"]){
-				return {
-					status: 0,
-					message: "license-issued"
-				}
-			}
-			if(!form["us-visa"]){
-				return {
-					status: 0,
-					message: "us-visa"
-				}
-			}
-			if(!form["us-expiry"]){
-				return {
-					status: 0,
-					message: "us-expiry"
-				}
-			}
-			if(!form["docs-name"]){
-				return {
-					status: 0,
-					message: "docs-name"
-				}
-			}
-			if(!form["docs-number"]){
-				return {
-					status: 0,
-					message: "docs-number"
-				}
-			}
-			if(!form["docs-reqd"]){
-				return {
-					status: 0,
-					message: "docs-reqd"
-				}
-			}
-			if(!form["docs-grade"]){
-				return {
-					status: 0,
-					message: "docs-grade"
-				}
-			}
-			if(!form["docs-expiry"]){
-				return {
-					status: 0,
-					message: "docs-expiry"
-				}
+
+				return_val.push({  
+	                status: 0,
+	                message: 'passport-expiry',
+	                class: 'passport-expiry_error_message',
+	                name_field: 'passport-expiry'
+    			});  
+
 			}
 
-			return  {  
-                status: 1,
-                message: 'all clear',
+			if(!form["sbook"]){
+				
+				return_val.push({  
+	                status: 0,
+	                message: 'sbook',
+	                class: 'sbook_error_message',
+	                name_field: 'sbook'
+    			});  
+ 
 			}
+
+			if(!form["sbook-issued"]){
+					
+				return_val.push({  
+	                status: 0,
+	                message: 'sbook-issued',
+	                class: 'sbook-issued_error_message',
+	                name_field: 'sbook-issued'
+    			});  
+ 
+			}
+
+			if(!form["src"]){
+
+				return_val.push({  
+	                status: 0,
+	                message: 'src',
+	                class: 'src_error_message',
+	                name_field: 'src'
+    			});  			 
+
+			}
+
+			if(!form["src-issued"]){
+
+				return_val.push({  
+	                status: 0,
+	                message: 'src-issued',
+	                class: 'src_error_message',
+	                name_field: 'src-issued'
+    			});  			 
+ 
+			}
+
+			if(!form["license"]){
+
+				return_val.push({  
+	                status: 0,
+	                message: 'license',
+	                class: 'license_error_message',
+	                name_field: 'license'
+    			});  					 
+ 			}
+
+			if(!form["license-issued"]){
+				
+
+				return_val.push({  
+	                status: 0,
+	                message: 'license-issued',
+	                class: 'license-issued_error_message',
+	                name_field: 'license-issued'
+    			});  
+
+			}
+
+			if(!form["us-visa"]){
+				
+				return_val.push({  
+	                status: 0,
+	                message: 'us-visa',
+	                class: 'us-visa_error_message',
+	                name_field: 'us-visa'
+    			}); 
+
+			}
+
+			if(!form["us-expiry"]){
+
+				return_val.push({  
+	                status: 0,
+	                message: 'us-expiry',
+	                class: 'us-expiry_error_message',
+	                name_field: 'us-expiry'
+    			}); 
+
+			}
+			// if(!form["docs-name"]){
+
+			// 	return_val.push({  
+	  //               status: 0,
+	  //               message: 'docs-name',
+	  //               class: 'docs-name_error_message',
+	  //               name_field: 'docs-name'
+   //  			}); 
+ 
+			// }
+
+			// if(!form["docs-number"]){
+
+			// 	return_val.push({  
+	  //               status: 0,
+	  //               message: 'docs-number',
+	  //               class: 'docs-number_error_message',
+	  //               name_field: 'docs-number'
+   //  			}); 
+ 
+			// }
+
+			// if(!form["docs-reqd"]){
+
+			// 	return_val.push({  
+	  //               status: 0,
+	  //               message: 'docs-reqd',
+	  //               class: 'docs-reqd_error_message',
+	  //               name_field: 'docs-reqd'
+   //  			});  
+			
+			// }
+
+			// if(!form["docs-grade"]){
+
+			// 	return_val.push({  
+	  //               status: 0,
+	  //               message: 'docs-grade',
+	  //               class: 'docs-grade_error_message',
+	  //               name_field: 'docs-grade'
+   //  			});   
+			// }
+
+			// if(!form["docs-expiry"]){
+
+			// 	return_val.push({  
+	  //               status: 0,
+	  //               message: 'docs-expiry',
+	  //               class: 'docs-expiry_error_message',
+	  //               name_field: 'docs-expiry'
+   //  			});   
+ 
+			// }
+
+			return return_val;
+			
 		}
 		
-		// Next
+
+//* Next of Personal Information Next 
+
 		$(document).on("click", '#tab-1', function (e) {
+
+			var i;
+
 			e.preventDefault();
+
+			check = new Array();
 
 			check = personal_tab();
 
-			if(!check.status){
-				alert(check.message);
-				$('#error-area').html(check.message+" is empty");
+
+			$("select").css("background-color", "");
+
+			$("input").css("background-color", 	"");
+
+			$("div .file-field").css("background-color", "");
+
+			if(check.length){
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+  				$('#error-area').html(check.message+" is empty");
+ 				return 1;
 			}else{
 				$('#application-tabs li:eq(1) a').tab('show');
-	            $('li[class="active"]').prevAll('li').addClass('visited');
-	            $('li[class="active"]').nextAll('li').removeClass('visited');		
-			}
+  			}
 
 		});
+
+//* Next of Kind & Dependents Next 
+
 		$(document).on("click", '#tab-2', function (e) {
+			
+			var i;
+
 			e.preventDefault();
 
+			check = new Array();
+
+			check = personal_tab();
+
+			$("select").css("background-color", "");
+
+			$("input").css("background-color", 	"");
+
+			$("div .file-field").css("background-color", "");
+
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#personal"]').tab('show');
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+  				$('#error-area').html("Some Field(s) in the Personal Form is missing! ");
+
+ 				return 1;
+
+			}  
+ 
 			check = next_kin_tab();
 
-			if(!check.status){
-				alert(check.message);
-				// $('#error-area').html(check.message+" is empty");
-			}else{
+			if(check.length){
+
+				$('#application-tabs a[href="#nextkin"]').tab('show');
+				$('#application-tabs li:eq(1) a').tab('show');
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Next Kin Form is missing! ");
+				return 1;
+
+ 			}else{
 				$('#application-tabs li:eq(2) a').tab('show');
 	            $('li[class="active"]').prevAll('li').addClass('visited');
-	            $('li[class="active"]').nextAll('li').removeClass('visited');
 			}
 
+
 		});
+
+
+//* Next of Educational Form Next 
+
+
 		$(document).on("click", '#tab-3', function (e) {
+			
 			e.preventDefault();
+
+			check = new Array();
+
+			check = personal_tab();
+
+			$("select").css("background-color", "");
+
+			$("input").css("background-color", 	"");
+
+			$("div .file-field").css("background-color", "");
+
+
+			if(check.length){
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+ 				$('#application-tabs a[href="#personal"]').tab('show');
+				$('#application-tabs li:eq(0) a').tab('show');
+	            //$('li[class="active"]').nextAll('li').removeClass('visited');
+
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Personal Form is missing! ");
+				
+				return 1;
+			}
+			
+			check = next_kin_tab();
+
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#nextkin"]').tab('show');
+				$('#application-tabs li:eq(1) a').tab('show');
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Next Kin Form is missing! ");
+
+				return 1;
+				// $('#error-area').html(check.message+" is empty");
+			}
+
 			check = educational_tab();
 
-			if(!check.status){
-				alert(check.message);
+			if(check.length){
+
+				$('#application-tabs a[href="#education"]').tab('show');
+				$('#application-tabs li:eq(2) a').tab('show');
+	            $('li[class="active"]').nextAll('li').addClass('visited');
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Educational Form is missing! ");
+
+				return 1;
 				// $('#error-area').html(check.message+" is empty");
 			}else{
 				$('#application-tabs li:eq(3) a').tab('show');
 	            $('li[class="active"]').prevAll('li').addClass('visited');
-	            $('li[class="active"]').nextAll('li').removeClass('visited');
-			}
+ 			}
 		});
+
+
+//* Next of Document Form Next 
+
+
 		$(document).on("click", '#tab-4', function (e) {
+			
 			e.preventDefault();
+
+			$("select").css("background-color", "");
+
+			$("input").css("background-color", 	"");
+
+			$("div .file-field").css("background-color", "");
+
+			check = new Array();
+
+			check = personal_tab();
+			if(check.length){
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#personal"]').tab('show');
+				$('#application-tabs li:eq(0) a').tab('show');
+ 
+
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Personal Form is missing! ");
+				
+  				alert("personal_tab Tab");
+
+  				console.log(check);
+
+
+				return 1;
+			}
+			
+			check = next_kin_tab();
+
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#nextkin"]').tab('show');
+				$('#application-tabs li:eq(1) a').tab('show');
+
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				alert("Next Kin Tab");
+
+  				console.log(check);
+
+  				$('#error-area').html("Some Field(s) in the Next Kin Form is missing! ");
+				
+				return 1;
+				// $('#error-area').html(check.message+" is empty");
+			}
+
+			check = educational_tab();
+
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#education"]').tab('show');
+				$('#application-tabs li:eq(2) a').tab('show'); 				
+
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+  				alert("Educational Tab");
+
+  				console.log(check);
+
+  				$('#error-area').html("Some Field(s) in the Educational Form is missing! ");
+				
+				return 1;
+				// $('#error-area').html(check.message+" is empty");
+			}
+
 			check = documents_tab();
 
-			if(!check.status){
-				alert(check.message);
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#documents"]').tab('show');
+				$('#application-tabs li:eq(3) a').tab('show');
+				
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Document Form is missing! ");
+  				
+  				alert("Documents Tab");
+
+  				console.log(check);
+
+				return 1;
 				// $('#error-area').html(check.message+" is empty");
 			}else{
 				$('#application-tabs li:eq(4) a').tab('show');
 	            $('li[class="active"]').prevAll('li').addClass('visited');
-	            $('li[class="active"]').nextAll('li').removeClass('visited');
-			}
+ 			}
+
+
 		});
+
+ //* Next of Service History Form Review 
+
+
+		$(document).on("click", '.btn_review_form',function(e) {
+			
+
+			$("select").css("background-color", "");
+
+			$("input").css("background-color", 	"");
+
+			$("div .file-field").css("background-color", "");
+
+			check = new Array();
+
+			check = personal_tab();
+			if(check.length){
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#personal"]').tab('show');
+				$('#application-tabs li:eq(0) a').tab('show');
+ 
+
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Personal Form is missing! ");
+				
+				alert("Personal Info");
+				
+				e.preventDefault();
+
+				return 1;
+			}
+			
+			check = next_kin_tab();
+
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#nextkin"]').tab('show');
+				$('#application-tabs li:eq(1) a').tab('show');
+
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Next Kin Form is missing! ");
+				
+				alert("next_kin_tab Info");
+
+				e.preventDefault();
+
+				return 1;
+				// $('#error-area').html(check.message+" is empty");
+			}
+
+			check = educational_tab();
+
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#education"]').tab('show');
+				$('#application-tabs li:eq(2) a').tab('show'); 				
+
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+				alert("educational_tab Info");
+
+  				$('#error-area').html("Some Field(s) in the Educational Form is missing! ");
+				
+				e.preventDefault();
+
+				return 1;
+				// $('#error-area').html(check.message+" is empty");
+			}
+
+			check = documents_tab();
+
+			if(check.length){
+
+				$('li[class="active"]').prevAll('li').removeClass('visited');
+				$('#application-tabs a[href="#documents"]').tab('show');
+				$('#application-tabs li:eq(3) a').tab('show');
+				
+
+				for(i = 0; i < check.length;i++){
+   
+   					if(check[i].name_field == "gender" || check[i].name_field == "civil-status")
+						$("select[name='"+check[i].name_field+"']").css("background-color", "red");
+
+   					else if(check[i].name_field == "file-photo")
+						$("div #file-field").css("background-color", "red");
+
+					else 
+						$("input[name='"+check[i].name_field+"']").css("background-color", 	"red");
+ 				}
+
+
+  				$('#error-area').html("Some Field(s) in the Document Form is missing! ");
+				
+				alert("documents_tab Info");
+
+				e.preventDefault();
+
+				return 1;
+				// $('#error-area').html(check.message+" is empty");
+			} 
+
+ 
+		});
+
+
 
 		// Previous
 		$(document).on("click", '#prev-tab-2', function (e) {
@@ -1939,32 +2691,32 @@ $(document).ready(function(){
             $('li[role="presentation"]').removeClass('active').removeClass('visited');
 
 			$('#application-tabs a[href="#personal"]').tab('show');
-            $('li[class="active"]').prevAll('li').addClass('visited');
             $('li[class="active"]').nextAll('li').removeClass('visited');
+            $('li[class="active"]').prevAll('li').addClass('visited');
 		});
 		$(document).on("click", '#prev-tab-3', function (e) {
 			e.preventDefault();
             $('li[role="presentation"]').removeClass('active').removeClass('visited');
 
 			$('#application-tabs a[href="#nextkin"]').tab('show');
-            $('li[class="active"]').prevAll('li').addClass('visited');
             $('li[class="active"]').nextAll('li').removeClass('visited');
+            $('li[class="active"]').prevAll('li').addClass('visited');
 		});
 		$(document).on("click", '#prev-tab-4', function (e) {
 			e.preventDefault();
             $('li[role="presentation"]').removeClass('active').removeClass('visited');
 
 			$('#application-tabs a[href="#education"]').tab('show');
-            $('li[class="active"]').prevAll('li').addClass('visited');
             $('li[class="active"]').nextAll('li').removeClass('visited');
+            $('li[class="active"]').prevAll('li').addClass('visited');
 		});
 		$(document).on("click", '#prev-tab-5', function (e) {
 			e.preventDefault();
             $('li[role="presentation"]').removeClass('active').removeClass('visited');
 
 			$('#application-tabs a[href="#documents"]').tab('show');
-            $('li[class="active"]').prevAll('li').addClass('visited');
             $('li[class="active"]').nextAll('li').removeClass('visited');
+            $('li[class="active"]').prevAll('li').addClass('visited');
 		});
 
 		// Agreement
@@ -1976,6 +2728,7 @@ $(document).ready(function(){
                 $('#submit-form').css('pointer-events', 'none');
 			}
         });
+		
 
 
         // $(document).on("click", "a[data-trigger='next']", function(e){
@@ -1999,14 +2752,14 @@ $(document).ready(function(){
                 html += '<div class="col-md-8 p-0">';
                 html += '<div class="form-group">';
                         html += '<label>Document Name <div>*</div></label>';
-                        html += '<input type="text" name="docs-name[]" class="form-control" placeholder="Training in Advance Firefighting (COP)" required>';
+                        html += '<input type="text" name="docs-name[]" class="form-control" placeholder="Training in Advance Firefighting (COP)"  >';
                         html += '<p class="text-white">docname</p>';
                         html += '</div>';
                     html += '</div>';
                     html += '<div class="col-md-4 p-0">';
                         html += '<div class="form-group">';
                             html += '<label>Document Number <div>*</div></label>';
-                            html += '<input type="text" name="docs-number[]" class="form-control" placeholder="17-6817" required>';
+                            html += '<input type="text" name="docs-number[]" class="form-control" placeholder="17-6817"  >';
                             html += '<p class="text-white">docnumber</p>';
                         html += '</div>';
                     html += '</div>';
@@ -2015,28 +2768,28 @@ $(document).ready(function(){
                     html += '<div class="col-md-3 p-0">';
                         html += '<div class="form-group">';
                             html += '<label>Req\'d 4 <div>*</div></label>';
-                            html += '<input type="text" name="docs-reqd[]" class="form-control" placeholder="Officer" required>';
+                            html += '<input type="text" name="docs-reqd[]" class="form-control" placeholder="Officer"  >';
                             html += '<p class="text-white">reqd</p>';
                         html += '</div>';
                     html += '</div>';
                     html += '<div class="col-md-3 p-0">';
                         html += '<div class="form-group">';
                             html += '<label>Grade <div>*</div></label>';
-                            html += '<input type="text" name="docs-grade[]" class="form-control" required>';
+                            html += '<input type="text" name="docs-grade[]" class="form-control"  >';
                             html += '<p class="text-white">grade</p>';
                         html += '</div>';
                     html += '</div>';
                     html += '<div class="col-md-3 p-0">';
                         html += '<div class="form-group">';
                             html += '<label>Issued <div>*</div></label>';
-                            html += '<input type="date" name="docs-issued[]" class="form-control" required>';
+                            html += '<input type="date" name="docs-issued[]" class="form-control"  >';
                             html += '<p class="text-white">issued</p>';
                         html += '</div>';
                     html += '</div>';
                     html += '<div class="col-md-3 p-0">';
                         html += '<div class="form-group">';
                             html += '<label>Expiry <div>*</div></label>';
-                            html += '<input type="date" name="docs-expiry[]" class="form-control" required>';
+                            html += '<input type="date" name="docs-expiry[]" class="form-control"  >';
                             html += '<p class="text-white">expiry</p>';
                 html += '</div>';
             html += '</div>';
@@ -2077,7 +2830,7 @@ $(document).ready(function(){
                         html += '<div class="col-md[]2 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Company Name</label>';
-                                html += '<input type="text" name="history-name[]" class="form-control" value="Maersk" required>';
+                                html += '<input type="text" name="history-name[]" class="form-control" value="Maersk"  >';
                                 html += '<p class="text-white">companyname</p>';
                             html += '</div>';
                         html += '</div>';
@@ -2086,28 +2839,28 @@ $(document).ready(function(){
                         html += '<div class="col-md-3 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Rank</label>';
-                                html += '<input type="text" name="history-rank[]" class="form-control" value="C/E" required>';
+                                html += '<input type="text" name="history-rank[]" class="form-control" value="C/E"  >';
                                 html += '<p class="text-white">rank</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-3 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Embark</label>';
-                                html += '<input type="date" name="history-embark[]" class="form-control" value="2010-02-08" required>';
+                                html += '<input type="date" name="history-embark[]" class="form-control" value="2010-02-08"  >';
                                 html += '<p class="text-white">embark</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-3 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Disembark</label>';
-                                html += '<input type="date" name="history-disembark[]" class="form-control" value="2010-05-01" required>';
+                                html += '<input type="date" name="history-disembark[]" class="form-control" value="2010-05-01"  >';
                                 html += '<p class="text-white">disembark</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-3 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Vessel Name</label>';
-                                html += '<input type="text" name="history-vessel[]" class="form-control" value="NedlloydAdrian" required>';
+                                html += '<input type="text" name="history-vessel[]" class="form-control" value="NedlloydAdrian"  >';
                                 html += '<p class="text-white">vesselname</p>';
                             html += '</div>';
                         html += '</div>';
@@ -2116,42 +2869,42 @@ $(document).ready(function(){
                         html += '<div class="col-md-2 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Type</label>';
-                                html += '<input type="text" name="history-type[]" class="form-control" value="CNTR" required>';
+                                html += '<input type="text" name="history-type[]" class="form-control" value="CNTR"  >';
                                 html += '<p class="text-white">type</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-2 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>GT</label>';
-                                html += '<input type="text" name="history-gt[]" class="form-control" value="26,833" required>';
+                                html += '<input type="text" name="history-gt[]" class="form-control" value="26,833"  >';
                                 html += '<p class="text-white">gt</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-2 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Engine</label>';
-                                html += '<input type="text" name="history-engine[]" class="form-control" value="SLZR" required>';
+                                html += '<input type="text" name="history-engine[]" class="form-control" value="SLZR"  >';
                                 html += '<p class="text-white">engine</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-2 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>HP</label>';
-                                html += '<input type="text" name="history-hp[]" class="form-control" value="21,560" required>';
+                                html += '<input type="text" name="history-hp[]" class="form-control" value="21,560"  >';
                                 html += '<p class="text-white">21,560</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-2 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>Reason</label>';
-                                html += '<input type="text" name="history-reason[]" class="form-control" value="Completed" required>';
+                                html += '<input type="text" name="history-reason[]" class="form-control" value="Completed"  >';
                                 html += '<p class="text-white">reason</p>';
                             html += '</div>';
                         html += '</div>';
                         html += '<div class="col-md-2 p-0">';
                             html += '<div class="form-group">';
                                 html += '<label>FR</label>';
-                                html += '<input type="text" name="history-fr[]" class="form-control" value="N.A" required>';
+                                html += '<input type="text" name="history-fr[]" class="form-control" value="N.A"  >';
                                 html += '<p class="text-white">fr</p>';
                             html += '</div>';
                         html += '</div>';
@@ -2176,4 +2929,5 @@ $(document).ready(function(){
             }, 500);
         });
 });
-</script>
+</script> 
+
